@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,1036 +8,1394 @@
 <title>Ayra Fathima - Naming Ceremony</title>
 
 <style>
-* {
-    box-sizing: border-box;
+
+*{
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    background: #f5fbff;
-    color: #174d73;
-    overflow: hidden;
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
 }
 
-.page {
-    display: none;
-    width: 100%;
-    height: 100vh;
-    min-height: 100vh;
-    padding: 25px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
+body{
+    font-family:Georgia, "Times New Roman", serif;
+    background:#f7fbff;
+    color:#243b53;
+    overflow:hidden;
 }
 
-.page.active {
-    display: flex;
+/* =========================
+COMMON
+========================= */
+
+.page{
+    display:none;
+    width:100%;
+    height:100vh;
+    min-height:100vh;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:25px 18px;
+    position:relative;
+    overflow:hidden;
 }
 
-.content {
-    width: 100%;
-    max-width: 650px;
-    animation: fadeIn 1s ease;
+.page.show{
+    display:flex;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
+.box{
+    width:100%;
+    max-width:700px;
+    animation:appear 1s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(25px);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-button {
-    border: none;
-    background: #1769aa;
-    color: white;
-    padding: 14px 25px;
-    border-radius: 30px;
-    font-size: 17px;
-    cursor: pointer;
-    margin-top: 20px;
-    box-shadow: 0 8px 20px rgba(23,105,170,0.25);
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
-/* PAGE 1 */
-
-#page1 {
-    background: linear-gradient(145deg, #0b4168, #2383bd);
-    color: white;
-}
-
-.moon {
-    font-size: 75px;
-    margin-bottom: 10px;
-}
-
-.bismillah {
-    font-size: 25px;
-    margin: 15px 0;
-}
-
-.openTitle {
-    font-size: 43px;
-    font-style: italic;
-    margin: 20px 0;
-}
-
-.openText {
-    font-size: 19px;
-    line-height: 1.7;
-}
-
-/* PAGE 2 */
-
-.flower {
-    font-size: 80px;
-    animation: float 2s infinite ease-in-out;
-}
-
-@keyframes float {
-    50% {
-        transform: translateY(-12px);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
-.pageTitle {
-    font-size: 45px;
-    color: #1769aa;
-    font-style: italic;
+button{
+    border:none;
+    outline:none;
+    background:#1769aa;
+    color:white;
+    padding:15px 28px;
+    border-radius:35px;
+    font-size:17px;
+    font-family:Georgia,serif;
+    cursor:pointer;
+    margin-top:22px;
+    box-shadow:0 8px 25px rgba(23,105,170,.25);
+    transition:.3s;
 }
 
-.description {
-    font-size: 20px;
-    line-height: 1.7;
+button:hover{
+    transform:translateY(-3px) scale(1.03);
 }
 
-/* PAGE 3 */
-
-#page3 {
-    background: linear-gradient(145deg, #0b4168, #1e78b1);
-    color: white;
+button:active{
+    transform:scale(.95);
 }
 
-.secretTitle {
-    letter-spacing: 5px;
-    font-size: 14px;
+
+/* =========================
+PAGE 1
+========================= */
+
+#p1{
+    background:
+    radial-gradient(circle at 50% 20%,#3b8dcc,#1769aa 42%,#082c4d 100%);
+    color:white;
 }
 
-.count {
-    font-size: 80px;
-    margin: 25px;
-    color: #c7eaff;
+.moon{
+    font-size:76px;
+    animation:moonFloat 3s infinite ease-in-out;
 }
 
-.babyName {
-    display: none;
-}
-
-.name {
-    font-size: 70px;
-    font-style: italic;
-    color: #d8f0ff;
-}
-
-.surname {
-    font-size: 30px;
-    letter-spacing: 9px;
-}
-
-.nameText {
-    font-size: 18px;
-}
-
-/* PAGE 4 */
-
-.calendar {
-    width: 290px;
-    margin: 20px auto;
-    background: white;
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(23,105,170,0.15);
-    border: 1px solid #c8e3f5;
-}
-
-.calendarTop {
-    background: #1769aa;
-    color: white;
-    padding: 17px;
-    letter-spacing: 3px;
-}
-
-.day {
-    padding-top: 15px;
-    font-size: 20px;
-}
-
-.date {
-    font-size: 85px;
-    font-weight: bold;
-    color: #1769aa;
-}
-
-.month {
-    font-size: 25px;
-    letter-spacing: 4px;
-}
-
-.year {
-    font-size: 22px;
-    padding: 10px;
-}
-
-.time {
-    border-top: 1px solid #d9eaf5;
-    padding: 15px;
-    font-size: 19px;
-}
-
-/* PAGE 5 */
-
-.locationIcon {
-    font-size: 75px;
-}
-
-.venue {
-    font-size: 43px;
-    color: #1769aa;
-    font-style: italic;
-}
-
-.venueName {
-    font-size: 27px;
-    margin: 20px 0 10px;
-}
-
-.address {
-    font-size: 19px;
-    line-height: 1.7;
-}
-
-/* PAGE 6 */
-
-.parents {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-}
-
-.parentCard {
-    width: 220px;
-    padding: 20px 10px;
-    background: white;
-    border: 1px solid #b9dcef;
-    border-radius: 25px;
-    box-shadow: 0 12px 30px rgba(23,105,170,0.12);
-}
-
-.parentCircle {
-    width: 70px;
-    height: 70px;
-    margin: 10px auto;
-    border-radius: 50%;
-    background: #1769aa;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-}
-
-.parentRole {
-    font-size: 12px;
-    letter-spacing: 3px;
-    color: #1769aa;
-}
-
-.parentName {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 8px;
-}
-
-.heart {
-    font-size: 28px;
-}
-
-/* PAGE 7 */
-
-.familyBox {
-    max-width: 480px;
-    margin: 20px auto;
-    padding: 25px;
-    background: white;
-    border-radius: 25px;
-    border: 1px solid #c4e1f3;
-    box-shadow: 0 12px 30px rgba(23,105,170,0.1);
-    font-size: 19px;
-    line-height: 2;
-}
-
-/* PAGE 8 */
-
-#page8 {
-    background: linear-gradient(145deg, #ffffff, #e4f3ff);
-}
-
-.requestTitle {
-    font-size: 42px;
-    color: #1769aa;
-    font-style: italic;
-}
-
-.question {
-    font-size: 25px;
-    font-weight: bold;
-    color: #1769aa;
-    margin-top: 20px;
-}
-
-.requestText {
-    font-size: 19px;
-    line-height: 1.7;
-}
-
-.buttonArea {
-    position: relative;
-    width: 100%;
-    max-width: 430px;
-    height: 150px;
-    margin: 10px auto;
-}
-
-.yesButton {
-    position: relative;
-    z-index: 2;
-}
-
-.noButton {
-    position: absolute;
-    left: 50%;
-    top: 75px;
-    background: #8ca4b5;
-    z-index: 5;
-    margin: 0;
-    transform: translateX(-50%);
-}
-
-#funnyMessage {
-    min-height: 25px;
-    color: #1769aa;
-    font-size: 16px;
-}
-
-/* PAGE 9 */
-
-#page9 {
-    background: radial-gradient(circle, #ffffff, #d8efff);
-}
-
-.finalSmall {
-    letter-spacing: 3px;
-    font-size: 13px;
-}
-
-.finalTitle {
-    font-size: 40px;
-    color: #1769aa;
-    font-style: italic;
-    margin-top: 15px;
-}
-
-.finalName {
-    font-size: 65px;
-    color: #075b9d;
-    font-style: italic;
-    margin: 15px 0;
-}
-
-.finalDetails {
-    font-size: 19px;
-    line-height: 1.7;
-}
-
-.signature {
-    font-size: 25px;
-    font-style: italic;
-    color: #1769aa;
-    margin-top: 20px;
-}
-
-/* HEARTS */
-
-.floatingHeart {
-    position: absolute;
-    bottom: -30px;
-    font-size: 22px;
-    color: #1769aa;
-    animation: heartUp 4s linear forwards;
-    pointer-events: none;
-}
-
-@keyframes heartUp {
-    from {
-        opacity: 0;
-        transform: translateY(0);
+@keyframes moonFloat{
+    0%,100%{
+        transform:translateY(0);
     }
-    20% {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-110vh);
+    50%{
+        transform:translateY(-12px);
     }
 }
 
-/* MOBILE */
+.bismillah{
+    font-size:27px;
+    color:#e4f3ff;
+    margin:18px 0;
+}
 
-@media (max-width: 600px) {
+.intro{
+    font-size:49px;
+    line-height:1.2;
+    color:white;
+    font-style:italic;
+    margin:18px 0;
+}
 
-    .openTitle {
-        font-size: 35px;
+.introText{
+    font-size:20px;
+    line-height:1.6;
+    color:#edf8ff;
+}
+
+.star{
+    position:absolute;
+    color:#d9efff;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{
+        opacity:.2;
+        transform:scale(.7);
     }
-
-    .pageTitle {
-        font-size: 38px;
-    }
-
-    .name {
-        font-size: 55px;
-    }
-
-    .surname {
-        font-size: 25px;
-    }
-
-    .venue {
-        font-size: 36px;
-    }
-
-    .parents {
-        gap: 5px;
-    }
-
-    .parentCard {
-        width: 155px;
-    }
-
-    .parentName {
-        font-size: 15px;
-    }
-
-    .requestTitle {
-        font-size: 34px;
-    }
-
-    .question {
-        font-size: 21px;
-    }
-
-    .finalName {
-        font-size: 50px;
+    to{
+        opacity:1;
+        transform:scale(1.2);
     }
 }
+
+
+/* =========================
+PAGE 2
+========================= */
+
+#p2{
+    background:
+    radial-gradient(circle at center,#ffffff,#f0f8ff);
+}
+
+.symbol{
+    font-size:95px;
+    color:#2c8acb;
+    animation:flowerFloat 2.5s infinite ease-in-out;
+}
+
+@keyframes flowerFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-3deg);
+    }
+    50%{
+        transform:translateY(-12px) rotate(3deg);
+    }
+}
+
+.softTitle{
+    font-size:50px;
+    color:#1769aa;
+    font-style:italic;
+}
+
+.softText{
+    font-size:22px;
+    line-height:1.7;
+    color:#425d72;
+}
+
+
+/* =========================
+PAGE 3 NAME REVEAL
+========================= */
+
+#p3{
+    background:
+    radial-gradient(circle at center,#1e70ad,#092a47 72%);
+    color:white;
+}
+
+.secret{
+    color:#a9dbff;
+    font-size:16px;
+    letter-spacing:5px;
+}
+
+.ready{
+    font-size:27px;
+    margin-top:20px;
+}
+
+.counter{
+    font-size:85px;
+    color:#a9dcff;
+    margin:28px;
+    text-shadow:0 0 25px #54a9e8;
+}
+
+.nameArea{
+    display:none;
+}
+
+.name{
+    font-size:78px;
+    color:#d7efff;
+    font-style:italic;
+    text-shadow:
+    0 0 15px #68b8ee,
+    0 0 35px #2f8dca;
+    animation:nameReveal 1.8s ease;
+}
+
+.surname{
+    font-size:31px;
+    letter-spacing:10px;
+    color:white;
+    margin-top:8px;
+}
+
+.nameBlessing{
+    color:#c7e8ff;
+    font-size:19px;
+}
+
+@keyframes nameReveal{
+    from{
+        opacity:0;
+        transform:scale(.3);
+        filter:blur(10px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+        filter:blur(0);
+    }
+}
+
+
+/* =========================
+PAGE 4 DATE
+========================= */
+
+#p4{
+    background:
+    linear-gradient(135deg,#ffffff,#eaf5ff);
+}
+
+.save{
+    letter-spacing:4px;
+    color:#527087;
+    font-size:15px;
+}
+
+.calendar{
+    width:295px;
+    margin:20px auto 0;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 18px 45px rgba(23,105,170,.16);
+    border:1px solid #d5eaf9;
+    animation:calendarOpen 1s ease;
+}
+
+@keyframes calendarOpen{
+    from{
+        opacity:0;
+        transform:rotateX(80deg);
+    }
+    to{
+        opacity:1;
+        transform:rotateX(0);
+    }
+}
+
+.calendarHead{
+    background:#1769aa;
+    color:white;
+    padding:18px;
+    font-size:18px;
+    letter-spacing:3px;
+}
+
+.day{
+    font-size:21px;
+    padding-top:18px;
+    color:#527087;
+}
+
+.date{
+    font-size:90px;
+    line-height:1;
+    font-weight:bold;
+    color:#1769aa;
+}
+
+.month{
+    font-size:26px;
+    letter-spacing:5px;
+    color:#2c668f;
+}
+
+.year{
+    font-size:23px;
+    padding:10px;
+}
+
+.time{
+    border-top:1px solid #dbeaf4;
+    padding:15px;
+    font-size:20px;
+    color:#31556e;
+}
+
+
+/* =========================
+PAGE 5 VENUE
+========================= */
+
+#p5{
+    background:
+    linear-gradient(135deg,#ffffff,#e8f5ff);
+}
+
+.pin{
+    font-size:82px;
+    color:#1769aa;
+    animation:pinBounce 1.5s infinite;
+}
+
+@keyframes pinBounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.venueTitle{
+    font-size:48px;
+    color:#1769aa;
+    font-style:italic;
+}
+
+.venueName{
+    font-size:28px;
+    color:#294d65;
+    margin:20px 0 10px;
+}
+
+.address{
+    font-size:20px;
+    line-height:1.7;
+    color:#527087;
+}
+
+
+/* =========================
+PAGE 6 PARENTS
+========================= */
+
+#p6{
+    background:
+    radial-gradient(circle at center,#ffffff,#eef8ff);
+}
+
+.parentTop{
+    color:#1769aa;
+    font-size:14px;
+    letter-spacing:4px;
+}
+
+.parentTitle{
+    font-size:47px;
+    color:#1769aa;
+    font-style:italic;
+    margin:10px 0 22px;
+}
+
+.parentCards{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+}
+
+.card{
+    width:230px;
+    min-height:285px;
+    background:#ffffff;
+    border:1px solid #b7daf2;
+    border-radius:28px;
+    padding:22px 10px;
+    box-shadow:0 15px 35px rgba(23,105,170,.12);
+    animation:cardFloat 3s infinite ease-in-out;
+}
+
+.card:nth-child(3){
+    animation-delay:.5s;
+}
+
+@keyframes cardFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+.crown{
+    font-size:34px;
+    color:#4b9bd0;
+}
+
+.letter{
+    width:75px;
+    height:75px;
+    margin:10px auto 15px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#2c8dcc,#125989);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:31px;
+    border:4px solid #b9def7;
+    box-shadow:0 0 0 5px #f6fbff;
+}
+
+.role{
+    font-size:12px;
+    letter-spacing:3px;
+    color:#1769aa;
+}
+
+.parentName{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:9px;
+    color:#29485b;
+}
+
+.cardText{
+    font-size:15px;
+    color:#648095;
+}
+
+.middleHeart{
+    font-size:31px;
+    color:#1976b9;
+    animation:heartPulse 1.4s infinite;
+}
+
+@keyframes heartPulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.3);
+    }
+}
+
+.parentsMessage{
+    font-size:19px;
+    line-height:1.5;
+    color:#527087;
+}
+
+
+/* =========================
+PAGE 7 GRANDPARENTS
+========================= */
+
+#p7{
+    background:
+    linear-gradient(135deg,#ffffff,#eaf5ff);
+}
+
+.grandTitle{
+    font-size:47px;
+    color:#1769aa;
+    font-style:italic;
+}
+
+.familyBox{
+    background:white;
+    max-width:500px;
+    margin:20px auto;
+    padding:25px;
+    border-radius:25px;
+    border:1px solid #c5e1f4;
+    box-shadow:0 15px 35px rgba(23,105,170,.10);
+    font-size:20px;
+    line-height:2;
+}
+
+.familyLabel{
+    color:#5c7b8e;
+    font-size:13px;
+    letter-spacing:3px;
+}
+
+.familyLine{
+    width:70%;
+    border:0;
+    border-top:1px solid #d8eaf5;
+}
+
+
+/* =========================
+PAGE 8 REQUEST
+========================= */
+
+#p8{
+    background:
+    linear-gradient(145deg,#ffffff,#e5f3ff);
+}
+
+.flower{
+    font-size:82px;
+    animation:flowerMove 2s infinite ease-in-out;
+}
+
+@keyframes flowerMove{
+    0%,100%{
+        transform:rotate(-5deg) translateY(0);
+    }
+    50%{
+        transform:rotate(5deg) translateY(-10px);
+    }
+}
+
+.requestTitle{
+    font-size:44px;
+    color:#1769aa;
+    font-style:italic;
+}
+
+.requestText{
+    font-size:21px;
+    line-height:1.7;
+    color:#527087;
+}
+
+.question{
+    font-size:27px;
+    color:#1769aa;
+    font-weight:bold;
+}
+
+
+/* =========================
+PAGE 9 FINAL
+========================= */
+
+#p9{
+    background:
+    radial-gradient(circle at center,#ffffff,#dcefff,#9dcdec);
+}
+
+.finalSmall{
+    font-size:14px;
+    letter-spacing:4px;
+    color:#527087;
+}
+
+.finalArabic{
+    font-size:26px;
+    color:#1769aa;
+    margin:12px;
+}
+
+.finalTitle{
+    font-size:44px;
+    color:#1769aa;
+    font-style:italic;
+}
+
+.finalName{
+    font-size:72px;
+    color:#075b9d;
+    font-style:italic;
+    text-shadow:2px 3px 0 white;
+}
+
+.finalDate{
+    font-size:22px;
+    line-height:1.7;
+    margin:17px;
+    color:#31556e;
+}
+
+.finalText{
+    font-size:19px;
+    line-height:1.6;
+    color:#45687d;
+}
+
+.signature{
+    font-size:29px;
+    font-style:italic;
+    color:#1769aa;
+    margin-top:18px;
+}
+
+
+/* =========================
+FLOATING HEARTS
+========================= */
+
+.heart{
+    position:absolute;
+    bottom:-30px;
+    color:white;
+    font-size:22px;
+    animation:heartUp 5s linear forwards;
+    pointer-events:none;
+}
+
+@keyframes heartUp{
+    0%{
+        opacity:0;
+        transform:translateY(0);
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+        transform:translateY(-110vh) translateX(80px);
+    }
+}
+
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .intro{
+        font-size:38px;
+    }
+
+    .bismillah{
+        font-size:23px;
+    }
+
+    .softTitle{
+        font-size:40px;
+    }
+
+    .softText{
+        font-size:19px;
+    }
+
+    .name{
+        font-size:60px;
+    }
+
+    .surname{
+        font-size:25px;
+        letter-spacing:7px;
+    }
+
+    .calendar{
+        width:280px;
+    }
+
+    .venueTitle{
+        font-size:40px;
+    }
+
+    .parentTitle{
+        font-size:39px;
+    }
+
+    .parentCards{
+        gap:5px;
+    }
+
+    .card{
+        width:155px;
+        min-height:245px;
+        padding:17px 5px;
+    }
+
+    .letter{
+        width:62px;
+        height:62px;
+        font-size:26px;
+    }
+
+    .parentName{
+        font-size:16px;
+    }
+
+    .role{
+        font-size:9px;
+        letter-spacing:2px;
+    }
+
+    .cardText{
+        font-size:13px;
+    }
+
+    .middleHeart{
+        font-size:22px;
+    }
+
+    .parentsMessage{
+        font-size:17px;
+    }
+
+    .grandTitle{
+        font-size:39px;
+    }
+
+    .familyBox{
+        font-size:17px;
+    }
+
+    .requestTitle{
+        font-size:38px;
+    }
+
+    .requestText{
+        font-size:18px;
+    }
+
+    .question{
+        font-size:23px;
+    }
+
+    .finalTitle{
+        font-size:38px;
+    }
+
+    .finalName{
+        font-size:55px;
+    }
+
+    .finalDate{
+        font-size:19px;
+    }
+
+    .finalText{
+        font-size:17px;
+    }
+
+    .signature{
+        font-size:25px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
 
-<section class="page active" id="page1">
+<!-- =========================
+PAGE 1
+========================= -->
 
-    <div class="content">
+<div class="page show" id="p1">
 
-        <div class="moon">☾</div>
+<div class="star" style="top:12%;left:12%;">✦</div>
+<div class="star" style="top:25%;left:28%;">✧</div>
+<div class="star" style="top:15%;right:20%;">✦</div>
+<div class="star" style="top:42%;right:10%;">✧</div>
+<div class="star" style="bottom:18%;left:15%;">✦</div>
+<div class="star" style="bottom:12%;right:25%;">✧</div>
 
-        <div class="bismillah">
-            بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
-        </div>
+<div class="box">
 
-        <div style="letter-spacing:4px;">
-            A LITTLE SURPRISE
-        </div>
+<div class="moon">
+☾
+</div>
 
-        <div class="openTitle">
-            Someone Special Has Arrived...
-        </div>
+<div class="bismillah">
+بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+</div>
 
-        <div class="openText">
-            A tiny princess has entered our world. 👶🏻
-            <br>
-            She has a beautiful secret to share.
-        </div>
+<div style="letter-spacing:4px;font-size:13px;">
+A LITTLE SURPRISE
+</div>
 
-        <button onclick="showPage(2)">
-            OPEN MY INVITATION 💙
-        </button>
+<div class="intro">
+Someone Special Has Arrived...
+</div>
 
-    </div>
+<p class="introText">
+A tiny princess has entered our world.
+<br>
+Her beautiful story begins here.
+</p>
 
-</section>
+<button onclick="go(2)">
+OPEN MY INVITATION
+</button>
 
+</div>
 
-<!-- PAGE 2 -->
+</div>
 
-<section class="page" id="page2">
 
-    <div class="content">
+<!-- =========================
+PAGE 2
+========================= -->
 
-        <div class="flower">🌸</div>
+<div class="page" id="p2">
 
-        <div class="pageTitle">
-            Hiiii...!
-        </div>
+<div class="box">
 
-        <div class="description">
+<div class="symbol">
+✿
+</div>
 
-            I'm a little princess. 👶🏻
+<div class="softTitle">
+Hiiii...!
+</div>
 
-            <br><br>
+<div class="softText">
 
-            I have a very special secret...
+A little princess has arrived.
 
-            <br>
+<br><br>
 
-            Would you like to know my name? 🥰
+Her story has just begun,
+and she has a very special
+secret to share with you.
 
-        </div>
+<br><br>
 
-        <button onclick="startReveal()">
-            REVEAL MY NAME ✨
-        </button>
+Are you ready?
 
-    </div>
+</div>
 
-</section>
+<button onclick="revealName()">
+REVEAL MY SECRET
+</button>
 
+</div>
 
-<!-- PAGE 3 -->
+</div>
 
-<section class="page" id="page3">
 
-    <div class="content">
+<!-- =========================
+PAGE 3
+========================= -->
 
-        <div class="secretTitle">
-            MY SECRET NAME
-        </div>
+<div class="page" id="p3">
 
-        <div id="readyText">
-            Get ready...
-        </div>
+<div class="box">
 
-        <div class="count" id="count">
-            3
-        </div>
+<div class="secret">
+A SECRET NAME
+</div>
 
-        <div class="babyName" id="babyName">
+<div class="ready">
+Are you ready to know my name?
+</div>
 
-            <div class="name">
-                AYRA
-            </div>
+<div class="counter" id="counter">
+3
+</div>
 
-            <div class="surname">
-                FATHIMA
-            </div>
+<div class="nameArea" id="nameArea">
+ 
 
-            <p class="nameText">
-                My beautiful name, chosen with love. 💙
-            </p>
 
-        </div>
+<div class="name">
+ AYRA
+</div>
 
-        <button id="nameButton"
-                style="display:none;"
-                onclick="showPage(4)">
-            MY SPECIAL DAY 📅
-        </button>
+<div class="surname">
+ALINJIKUPPAM AYRA FATHIMA
+</div>
 
-    </div>
+<p class="nameBlessing">
+Allah has blessed me with a beautiful name.
+</p>
 
-</section>
+</div>
 
+<button
+id="nameNext"
+style="display:none;"
+onclick="go(4)"
+>
+DISCOVER MY SPECIAL DAY
+</button>
 
-<!-- PAGE 4 -->
+</div>
 
-<section class="page" id="page4">
+</div>
 
-    <div class="content">
 
-        <div style="letter-spacing:4px;">
-            PLEASE SAVE THE DATE
-        </div>
+<!-- =========================
+PAGE 4
+========================= -->
 
-        <div class="calendar">
+<div class="page" id="p4">
 
-            <div class="calendarTop">
-                NAMING CEREMONY
-            </div>
+<div class="box">
 
-            <div class="day">
-                SATURDAY
-            </div>
+<div class="save">
+SAVE THE DATE
+</div>
 
-            <div class="date">
-                05
-            </div>
+<div class="calendar">
 
-            <div class="month">
-                SEPTEMBER
-            </div>
+<div class="calendarHead">
+NAMING CEREMONY
+</div>
 
-            <div class="year">
-                2026
-            </div>
+<div class="day">
+SATURDAY
+</div>
 
-            <div class="time">
-                12:00 PM onwards
-            </div>
+<div class="date">
+05
+</div>
 
-        </div>
+<div class="month">
+SEPTEMBER
+</div>
 
-        <button onclick="showPage(5)">
-            WHERE IS MY PARTY? 📍
-        </button>
+<div class="year">
+2026
+</div>
 
-    </div>
+<div class="time">
+12:00 PM onwards
+</div>
 
-</section>
+</div>
 
+<button onclick="go(5)">
+DISCOVER THE VENUE
+</button>
 
-<!-- PAGE 5 -->
+</div>
 
-<section class="page" id="page5">
+</div>
 
-    <div class="content">
 
-        <div class="locationIcon">
-            📍
-        </div>
+<!-- =========================
+PAGE 5
+========================= -->
 
-        <div class="venue">
-            Come Find Me...
-        </div>
+<div class="page" id="p5">
 
-        <div class="venueName">
-            Rahmath Function Hall
-        </div>
+<div class="box">
 
-        <div class="address">
+<div class="pin">
+⌖
+</div>
 
-            Khaderpet, A Kaspa Road
-            <br>
-            Ambur, Tamil Nadu - 635802
+<div class="venueTitle">
+Come Find Me
+</div>
 
-        </div>
+<div class="venueName">
+Rahmath Function Hall
+</div>
 
-        <p>
-            I'll be waiting for you! 🥰
-        </p>
+<div class="address">
+Khaderpet, A Kaspa Road
+<br>
+Ambur, Tamil Nadu - 635802
+</div>
 
-        <button onclick="showPage(6)">
-            MEET MY PARENTS ❤️
-        </button>
+<p style="font-size:20px;color:#527087;">
+A beautiful celebration awaits you.
+</p>
 
-    </div>
+<button onclick="go(6)">
+MEET MY PARENTS
+</button>
 
-</section>
+</div>
 
+</div>
 
-<!-- PAGE 6 -->
 
-<section class="page" id="page6">
+<!-- =========================
+PAGE 6
+========================= -->
 
-    <div class="content">
+<div class="page" id="p6">
 
-        <div style="letter-spacing:3px;">
-            THE TWO HEARTS BEHIND MY WORLD
-        </div>
+<div class="box">
 
-        <div class="pageTitle">
-            My Beautiful Parents
-        </div>
+<div class="parentTop">
+THE HEARTS BEHIND MY WORLD
+</div>
 
-        <div class="parents">
+<div class="parentTitle">
+My Beautiful Parents
+</div>
 
-            <div class="parentCard">
+<div class="parentCards">
 
-                <div class="parentCircle">
-                    A
-                </div>
 
-                <div class="parentRole">
-                    MY APPA
-                </div>
+<div class="card">
 
-                <div class="parentName">
-                    AYAZ AHMED
-                </div>
+<div class="crown">
+♛
+</div>
 
-                <p>
-                    My first hero 💙
-                </p>
+<div class="letter">
+A
+</div>
 
-            </div>
+<div class="role">
+MY DAD
+</div>
 
-            <div class="heart">
-                ❤️
-            </div>
+<div class="parentName">
+AYAZ AHMED
+</div>
 
-            <div class="parentCard">
+<div class="cardText">
+My first hero
+</div>
 
-                <div class="parentCircle">
-                    S
-                </div>
+</div>
 
-                <div class="parentRole">
-                    MY AMMA
-                </div>
 
-                <div class="parentName">
-                    SUMAN FATHIMA
-                </div>
+<div class="middleHeart">
+♥
+</div>
 
-                <p>
-                    My first home 💙
-                </p>
 
-            </div>
+<div class="card">
 
-        </div>
+<div class="crown">
+♛
+</div>
 
-        <p class="description">
-            Two hearts came together...
-            <br>
-            and I became their little world. 👶🏻
-        </p>
+<div class="letter">
+S
+</div>
 
-        <button onclick="showPage(7)">
-            MY LOVING FAMILY 👨‍👩‍👧
-        </button>
+<div class="role">
+MY MOM
+</div>
 
-    </div>
+<div class="parentName">
+SUMAN FATHIMA
+</div>
 
-</section>
+<div class="cardText">
+My first home
+</div>
 
+</div>
 
-<!-- PAGE 7 -->
+</div>
 
-<section class="page" id="page7">
+<div class="parentsMessage">
 
-    <div class="content">
+Two hearts came together...
+<br>
+and I became their little world.
 
-        <div class="pageTitle">
-            Proud Grandparents
-        </div>
+</div>
 
-        <div class="familyBox">
+<button onclick="go(7)">
+MY LOVING FAMILY
+</button>
 
-            <div>
-                Late A. Abdullah
-            </div>
+</div>
 
-            <div>
-                Basha Sahib
-            </div>
+</div>
 
-            <hr>
 
-            <div>
-                Late K. Mohammed Afsar Sahib
-            </div>
+<!-- =========================
+PAGE 7
+========================= -->
 
-            <div>
-                K. Shamshad Begum
-            </div>
+<div class="page" id="p7">
 
-            <div>
-                K. Sumaiya Parveen
-            </div>
+<div class="box">
 
-        </div>
+<div class="grandTitle">
+Proud Grandparents
+</div>
 
-        <p class="description">
-            Their blessings will always be precious
-            to our little angel. 🤍
-        </p>
+<div class="familyBox">
 
-        <button onclick="showPage(8)">
-            I HAVE A LITTLE REQUEST 💌
-        </button>
+<div class="familyLabel">
+WITH LOVE & RESPECT
+</div>
 
-    </div>
+<div>
+Late A. Abdullah
+</div>
 
-</section>
+<div>
+Basha Sahib
+</div>
+<div>
+K. Shamshad Begum
+</div>
 
+<hr class="familyLine">
 
-<!-- PAGE 8 YES / NO -->
+<div>
+Late K. Mohammed Afsar Sahib
+</div>
 
-<section class="page" id="page8">
 
-    <div class="content">
 
-        <div class="flower">
-            🥰
-        </div>
+<div>
+K. Sumaiya Parveen
+</div>
 
-        <div class="requestTitle">
-            I Have A Little Request...
-        </div>
+</div>
 
-        <div class="requestText">
+<p style="font-size:19px;color:#527087;">
+Their blessings will always be precious
+to our little angel.
+</p>
 
-            I may be tiny,
-            <br>
-            but my celebration is BIG! 🎉
+<button onclick="go(8)">
+MY LITTLE REQUEST
+</button>
 
-            <br><br>
+</div>
 
-            Please come and bless me
-            on my special day.
+</div>
 
-        </div>
 
-        <div class="question">
-            Will you come to my Naming Ceremony?
-        </div>
+<!-- =========================
+PAGE 8
+========================= -->
 
-        <div class="buttonArea">
+<div class="page" id="p8">
 
-            <button class="yesButton"
-                    onclick="sayYes()">
-                YES 💙
-            </button>
+<div class="box">
 
-            <button class="noButton"
-                    id="noButton"
-                    onclick="runAway()"
-                    ontouchstart="runAway()">
-                NO 😜
-            </button>
+<div class="flower">
+🌸
+</div>
 
-        </div>
+<div class="requestTitle">
+I Have A Little Request...
+</div>
 
-        <div id="funnyMessage">
-            Try touching NO... 😂
-        </div>
+<div class="requestText">
 
-    </div>
+I may be tiny,
+<br>
+but my celebration is BIG!
 
-</section>
+<br><br>
 
+Please come and bless me,
+smile with me,
+and make my special day beautiful.
 
-<!-- PAGE 9 -->
+</div>
 
-<section class="page" id="page9">
+<div class="question">
+Will you come to my Naming Ceremony?
+</div>
 
-    <div class="content">
+<button onclick="celebrate()">
+YES, I'LL COME!
+</button>
 
-        <div class="finalSmall">
-            WITH THE BLESSINGS OF ALLAH (SWT)
-        </div>
+</div>
 
-        <div class="bismillah">
-            بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
-        </div>
+</div>
 
-        <div class="finalTitle">
-            Naming Ceremony
-        </div>
 
-        <div class="finalName">
-            Ayra Fathima
-        </div>
+<!-- =========================
+PAGE 9
+========================= -->
 
-        <div class="finalDetails">
+<div class="page" id="p9">
 
-            Saturday, 5th September 2026
-            <br>
-            12:00 PM onwards
+<div class="box">
 
-            <br><br>
+<div class="finalSmall">
+WITH THE BLESSINGS OF ALLAH (SWT)
+</div>
 
-            Rahmath Function Hall
-            <br>
-            Khaderpet, A Kaspa Road,
-            <br>
-            Ambur, Tamil Nadu - 635802
+<div class="finalArabic">
+بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+</div>
 
-            <br><br>
+<div class="finalTitle">
+Naming Ceremony
+</div>
 
-            Your presence is the most beautiful gift.
-            <br>
-            Please come and bless our little angel. 💙
+<div class="finalName">
+Alinjikuppam Ayra Fathima
+</div>
 
-        </div>
+<div class="finalDate">
+Saturday, 5th September 2026
+<br>
+12:00 PM onwards
+</div>
 
-        <div class="signature">
-            Ayaz Ahmed & Suman Fathima
-        </div>
+<div class="finalText">
 
-        <p>
-            With Love & Gratitude ❤️
-        </p>
+Your presence is the most beautiful gift.
 
-    </div>
+<br><br>
 
-</section>
+We request the pleasure of your gracious
+presence and blessings for our little angel.
+
+<br><br>
+
+Rahmath Function Hall
+<br>
+Khaderpet, A Kaspa Road,
+Ambur, Tamil Nadu - 635802
+
+</div>
+
+<div class="signature">
+Ayaz Ahmed & Suman Fathima
+</div>
+
+<p style="color:#1769aa;">
+With Love & Gratitude
+</p>
+
+</div>
+
+</div>
 
 
 <script>
 
-/* CHANGE PAGE */
+/* PAGE CHANGE */
 
-function showPage(number) {
+function go(number){
 
-    var pages = document.querySelectorAll(".page");
+    var pages =
+        document.getElementsByClassName("page");
 
-    for (var i = 0; i < pages.length; i++) {
-        pages[i].classList.remove("active");
+    for(var i=0;i<pages.length;i++){
+
+        pages[i].classList.remove("show");
+
     }
 
-    document.getElementById("page" + number).classList.add("active");
+    document
+        .getElementById("p"+number)
+        .classList.add("show");
 }
 
 
 /* NAME REVEAL */
 
-function startReveal() {
+function revealName(){
 
-    showPage(3);
+    go(3);
 
-    var count = document.getElementById("count");
-    var name = document.getElementById("babyName");
-    var button = document.getElementById("nameButton");
-    var ready = document.getElementById("readyText");
+    var counter =
+        document.getElementById("counter");
 
-    var number = 3;
+    var nameArea =
+        document.getElementById("nameArea");
 
-    count.innerHTML = number;
+    var next =
+        document.getElementById("nameNext");
 
-    var timer = setInterval(function() {
+    var number=3;
+
+    counter.innerHTML=number;
+
+    var timer=setInterval(function(){
 
         number--;
 
-        if (number > 0) {
+        if(number>0){
 
-            count.innerHTML = number;
+            counter.innerHTML=number;
 
-        } else {
+        }else{
 
             clearInterval(timer);
 
-            count.innerHTML = "✨";
+            counter.innerHTML="✦";
 
-            setTimeout(function() {
+            setTimeout(function(){
 
-                count.style.display = "none";
-                ready.style.display = "none";
+                counter.style.display="none";
 
-                name.style.display = "block";
-                button.style.display = "inline-block";
+                nameArea.style.display="block";
 
-            }, 700);
+                next.style.display="inline-block";
+
+                sparkle();
+
+            },700);
+
         }
 
-    }, 1000);
+    },1000);
 }
 
 
-/* RUNAWAY NO BUTTON */
+/* NAME SPARKLES */
 
-function runAway() {
+function sparkle(){
 
-    var button = document.getElementById("noButton");
-    var area = document.querySelector(".buttonArea");
-    var message = document.getElementById("funnyMessage");
+    for(var i=0;i<25;i++){
 
-    var maxX = area.clientWidth - button.offsetWidth;
-    var maxY = area.clientHeight - button.offsetHeight;
+        var s=document.createElement("div");
 
-    if (maxX < 0) {
-        maxX = 0;
-    }
+        s.innerHTML="✦";
 
-    if (maxY < 0) {
-        maxY = 0;
-    }
+        s.style.position="absolute";
 
-    var x = Math.random() * maxX;
-    var y = Math.random() * maxY;
+        s.style.left=(Math.random()*100)+"%";
 
-    button.style.left = x + "px";
-    button.style.top = y + "px";
-    button.style.transform = "none";
+        s.style.top=(Math.random()*100)+"%";
 
-    var messages = [
-        "Too slow! 😂",
-        "Catch me if you can! 😜",
-        "I'm running away! 🏃‍♀️💨",
-        "500 KM SPEED! 🚀",
-        "No button escaped! 😂",
-        "Try again! 😆",
-        "You can't catch me! 😜",
-        "Ayra says YES! 💙"
-    ];
+        s.style.color="#a9dcff";
 
-    var randomNumber =
-        Math.floor(Math.random() * messages.length);
+        s.style.fontSize=(10+Math.random()*20)+"px";
 
-    message.innerHTML = messages[randomNumber];
-}
+        s.style.opacity="0.8";
 
+        s.style.pointerEvents="none";
 
-/* YES BUTTON */
-
-function sayYes() {
-
-    showPage(9);
-
-    for (var i = 0; i < 35; i++) {
-
-        createHeart(i);
+        document
+            .getElementById("p3")
+            .appendChild(s);
 
     }
 }
 
 
-/* FLOATING HEARTS */
+/* FINAL CELEBRATION */
 
-function createHeart(number) {
+function celebrate(){
 
-    var heart = document.createElement("div");
+    go(9);
 
-    heart.className = "floatingHeart";
+    for(var i=0;i<50;i++){
 
-    if (number % 2 === 0) {
-        heart.innerHTML = "♥";
-    } else {
-        heart.innerHTML = "✦";
+        var heart =
+            document.createElement("div");
+
+        heart.className="heart";
+
+        heart.innerHTML =
+            i%2===0 ? "♥" : "✦";
+
+        heart.style.left =
+            Math.random()*100+"%";
+
+        heart.style.animationDelay =
+            Math.random()*4+"s";
+
+        heart.style.animationDuration =
+            (3+Math.random()*4)+"s";
+
+        document
+            .getElementById("p9")
+            .appendChild(heart);
+
     }
 
-    heart.style.left =
-        Math.random() * 100 + "%";
-
-    heart.style.animationDelay =
-        Math.random() * 2 + "s";
-
-    heart.style.animationDuration =
-        (3 + Math.random() * 3) + "s";
-
-    document.getElementById("page9").appendChild(heart);
 }
 
 </script>
